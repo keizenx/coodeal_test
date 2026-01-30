@@ -148,14 +148,14 @@ def inscription(request):
                     profile.save()
                     if request.FILES['file']:
 
-                        image = request.FILES['file']
-                        profile.photo = image
-                        profile.save()
-                    message = "Votre Compte a été créé avec succès"
-                    issuccess = True
-                    if user is not None and user.is_active:
-                        login_request(request, user)
-                        message = "Votre Compte a été créé avec succès"
+                        try:
+                            image = request.FILES['file']
+                            profile.photo = image
+                            profile.save()
+                        except Exception as _:
+                            message = "Une erreur s'est produite lors de l'upload de l'image"
+                            issuccess = False
+                            return JsonResponse(datas, safe=False)
                         issuccess = True
                 except Exception as _:
 

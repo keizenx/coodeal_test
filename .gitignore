@@ -1,1 +1,16 @@
 /venv
+*.md
+*.docx
+*.doc
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+__pycache__/
+db.sqlite3
+msedgedriver.exe
+edgedriver_win64.zip
+*.pyc
+media/
